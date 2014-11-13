@@ -5,48 +5,49 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>MyBudget</title>
         <meta name="description" content="A budget manager.">
+        <script type="text/javascript" src="static/js/libs/angular/angular.js"></script>
         <link rel="stylesheet" href="static/css/main.css">
         <link rel="stylesheet" href="static/css/tabs.css">
         <link rel="stylesheet" href="static/css/listItem.css">
     </head>
-    <body ng-controller="MyBudgetCtrl"><!---->
+    <body ng-cloak ng-controller="MyBudgetCtrl"><!---->
 
         <h1 class="heading">MyBudget</h1>
         <div id="mainContainer">
             <div class="resourceContainer">
                 <ul id="resourceTabs">
-                    <li><a href="#" title="billTab">Bills</a></li>
-                    <li><a href="#" title="incomeTab">Income</a></li>
+                    <li><a href="#" data-sync="paymentTab" title="billTab">Bills</a></li><!-- ng-click='syncTabs(0, "resourceTabs", "billTab", "resourceContent")'-->
+                    <li><a href="#" data-sync="paycheckTab" title="incomeTab">Income</a></li><!-- ng-click='syncTabs(1, "resourceTabs", "incomeTab", "resourceContent")'-->
                 </ul>
 
-                <div id="resourceContent">
+                <div id="resourceContent" ng-cloak>
 
-                    <div id="billTab">
+                    <div id="billTab"  ng-cloak>
                         <section class="summary">
                             <ul class="nav">                                
                                 <li ng-repeat="bill in user.bills">
-                                    <a href="#">
+                                    <a href="#" ng-click='setCurrentBill($index)'>
                                         <span class="text">{{ bill.billName }}</span>
                                     </a>
                                 </li>
                             </ul>
                         </section>
 
-                        <section class="details">
-                            <section class="billDetail"><span class="spacer">Bill Id:</span>{{ currentBill.billId }}</section>
-                            <section class="billDetail"><span class="spacer">Source:</span>{{ currentBill.billSource }}</section>
-                            <section class="billDetail"><span class="spacer">Due Date:</span>{{ currentBill.dueDate }}</section>
-                            <section class="billDetail"><span class="spacer">Amount:</span>${{ currentBill.amount }}</section>
-                            <section class="billDetail"><span class="spacer">Late Fee:</span>${{ currentBill.lateFee }}</section>
-                            <section class="billDetail"><span class="spacer">Website:</span>http://{{ currentBill.website }}</section>                            
+                        <section class="details"  ng-cloak>
+                            <section class="singleDetail"><span class="spacer">Bill Id:</span>{{ currentBill.billId }}</section>
+                            <section class="singleDetail"><span class="spacer">Source:</span>{{ currentBill.billSource }}</section>
+                            <section class="singleDetail"><span class="spacer">Due Date:</span>{{ currentBill.dueDate }}</section>
+                            <section class="singleDetail"><span class="spacer">Amount:</span>${{ currentBill.amount }}</section>
+                            <section class="singleDetail"><span class="spacer">Late Fee:</span>${{ currentBill.lateFee }}</section>
+                            <section class="singleDetail"><span class="spacer">Website:</span>http://{{ currentBill.website }}</section>                            
                         </section>
 
                     </div>
 
                     <div id="incomeTab">
-
+                        
                         <section class="summary">
-                            this is the summary
+                            
                         </section>
 
                         <section class="details">
@@ -57,21 +58,30 @@
                 </div>
             </div>
 
-            <div class="resourceContainer">
+            <div class="resourceContainer" ng-cloak>
                 <ul id="collectiveTabs">
-                    <li><a href="#" title="paymentTab">Payments</a></li>
-                    <li><a href="#" title="paycheckTab">Paychecks</a></li>
+                    <li><a href="#" data-sync="billTab" title="paymentTab">Payments</a></li><!-- ng-click='syncTabs(0, "collectiveTabs", "paymentTab", "collectiveContent")'-->
+                    <li><a href="#" data-sync="incomeTab" title="paycheckTab">Paychecks</a></li><!-- ng-click='syncTabs(1, "collectiveTabs", "paycheckTab", "collectiveContent")'-->
                 </ul>
 
                 <div id="collectiveContent">
 
                     <div id="paymentTab">
                         <section class="summary">
-                            this is the summary
+                            <ul class="nav">                                
+                                <li ng-repeat="payment in currentPayments">
+                                    <a href="#" ng-click='setCurrentPayment($index)'>
+                                        <span class="text">{{ payment.paymentId }}</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </section>
 
                         <section class="details">
-                            this is the details
+                            <section class="singleDetail"><span class="spacer">Due Date:</span>{{ currentPayment.paymentDate }}</section>
+                            <section class="singleDetail"><span class="spacer">Filing Date:</span>{{ currentPayment.filingDate }}</section>
+                            <section class="singleDetail"><span class="spacer">Notified On:</span>{{ currentPayment.notifiedOn }}</section>
+                            <section class="singleDetail"><span class="spacer">Paid On:</span>{{ currentPayment.paidOn }}</section>
                         </section>
 
                     </div>
@@ -92,7 +102,7 @@
         </div>
 
         <script type="text/javascript" src="static/js/libs/jquery/jquery.js"></script>
-        <script type="text/javascript" src="static/js/libs/angular/angular.js"></script>
+        
         <script type="text/javascript" src="static/js/custom/tabs.js"></script>
         <script type="text/javascript" src="static/js/custom/pageBinding.js"></script>
 <!--        <script type="text/javascript">
