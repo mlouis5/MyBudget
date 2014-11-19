@@ -1,0 +1,125 @@
+<h1 class="heading">MyBudget</h1>
+        <div id="mainContainer">
+            <div class="billContainer">
+                <ul id="resourceTabs">
+                    <li><a href="#" data-sync="paymentTab" title="billTab">Bills</a></li><!-- ng-click='syncTabs(0, "resourceTabs", "billTab", "resourceContent")'-->                    
+                </ul>
+
+                <div id="resourceContent" ng-cloak>
+                    <div id="billTab"  ng-cloak>                        
+                        <ul class="nav">                                
+                            <li ng-repeat="bill in user.bills">
+                                <a href="#" ng-click='setCurrentBill($index)'>
+                                    <span class="text">{{ bill.billName}}</span>
+                                </a>
+                            </li>
+                        </ul>
+
+                        <section class="details"  ng-cloak>
+                            <section class="singleDetail"><span class="spacer">Id:</span>{{ currentBill.billId}}</section>
+                            <section class="singleDetail"><span class="spacer">Src:</span>{{ currentBill.billSource}}</section>
+                            <section class="singleDetail"><span class="spacer">Due:</span>{{ currentBill.dueDate}}</section>
+                            <section class="singleDetail"><span class="spacer">Amt:</span>${{ currentBill.amount}}</section>
+                            <section class="singleDetail"><span class="spacer">Fee:</span>${{ currentBill.lateFee}}</section>
+                            <section class="singleDetail"><span class="spacer">site:</span>{{ currentBill.website}}</section>                            
+                        </section>
+
+                        <ul class="nav">                                
+                            <li ng-repeat="payment in currentPayments">
+                                <a href="#" ng-click='setCurrentPayment($index)'>
+                                    <span class="text">{{ payment.paymentId}}</span>
+                                </a>
+                            </li>
+                        </ul>
+
+                        <section class="details">
+                            <section class="singleDetail"><span class="spacer">Due:</span>{{ currentPayment.paymentDate}}</section>
+                            <section class="singleDetail"><span class="spacer">file:</span>{{ currentPayment.filingDate}}</section>
+                            <section class="singleDetail"><span class="spacer">ntc:</span>{{ currentPayment.notifiedOn}}</section>
+                            <section class="singleDetail"><span class="spacer">paid:</span>{{ currentPayment.paidOn}}</section>
+                        </section>
+                    </div>                    
+                </div>
+            </div>
+
+            <div class="incomeContainer" ng-cloak>
+                <ul id="collectiveTabs">
+                    <li><a href="#" data-sync="paycheckTab" title="incomeTab">Income</a></li><!-- ng-click='syncTabs(1, "resourceTabs", "incomeTab", "resourceContent")'-->
+                </ul>
+
+                <div id="collectiveContent">
+
+                    <div id="incomeTab">
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="inputContainer" ng-cloak>
+                <ul id="inputTabs">
+                    <li><a href="#" title="userTab">User Input</a></li>
+                    <li><a href="#" title="billInputTab">Bill Input</a></li>
+                    <li><a href="#" title="payTab">Payment Input</a></li>
+                </ul>
+
+                <div id="inputContent">
+
+                    <div id="userTab">
+                            
+                    </div>
+                    
+                    <div id="billInputTab">
+                        <section class="inputTitle">Add/Edit Bill</section>
+                            <form>
+                                <input class="billField" id="name" type="text" placeholder="Bill Name"/>
+                                <input class="billField" id="source" type="text" placeholder="Bill Source"/>
+                                <input class="billField" id="type" type="text" placeholder="Bill Type"/>
+                                <input class="billField" id="amount" type="text" placeholder="Amount"/>
+                                <input class="billField" id="due" type="text" placeholder="Paid on"/>
+                                <input class="billField" id="revolving" type="text" placeholder="Is Bill Revolving?"/>
+                                <input class="billField" id="remaining" type="text" placeholder="Payments Remaining"/>
+                                <input class="billField" id="fee" type="text" placeholder="Late Fee"/>
+                                <input class="billField" id="rate" type="text" placeholder="Interest Rate"/>
+                                <input class="billField" id="grace" type="text" placeholder="Grace Period"/>
+                                <input class="billField" id="site" type="text" placeholder="Payment Website"/>
+                                <input class="billField" id="add1" type="text" placeholder="Address Line 1"/>
+                                <input class="billField" id="add2" type="text" placeholder="Address Line 2"/>
+                                <input class="billField" id="city" type="text" placeholder="City"/>
+                                <input class="billField" id="state" type="text" placeholder="State"/>
+                                <input class="billField" id="zip" type="text" placeholder="Zip"/>
+                            </form>
+                    </div>
+                    
+                    <div id="payTab">
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            
+            <div class="inputContainer" ng-cloak>
+                <ul id="inputTabs">
+                    <li><a href="#" title="signinTab">User Input</a></li>
+                    <li><a href="#" title="billTab">Bill Input</a></li>
+                    <li><a href="#" title="payTab">Payment Input</a></li>
+                </ul>
+
+                <div id="inputContent">
+
+                    <div id="userTab">
+                        
+                    </div>
+                    
+                    <div id="billTab">
+                        
+                    </div>
+                    
+                    <div id="payTab">
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </div>

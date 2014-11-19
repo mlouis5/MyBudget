@@ -1,4 +1,4 @@
-#resourceTabs, #collectiveTabs{
+#resourceTabs, #collectiveTabs, #inputTabs{
   overflow: auto;
   width: 100%;
   list-style: none;
@@ -6,13 +6,13 @@
   padding: 0;
 }
 
-#resourceTabs li, #collectiveTabs li{
+#resourceTabs li, #collectiveTabs li, #inputTabs li{
     margin: 0;
     padding: 0;
     float: left;
 }
 
-#resourceTabs a, #collectiveTabs a{
+#resourceTabs a, #collectiveTabs a, #inputTabs a{
     -moz-box-shadow: -4px 0 0 rgba(0, 0, 0, .2);
     -webkit-box-shadow: -4px 0 0 rgba(0, 0, 0, .2);
     box-shadow: -4px 0 0 rgba(0, 0, 0, .2);
@@ -31,7 +31,7 @@
     text-decoration: none;
 }
 
-#resourceTabs a:hover, #collectiveTabs a:hover{
+#resourceTabs a:hover, #collectiveTabs a:hover, #inputTabs a:hover{
     background: #c93434;
     background:    -moz-linear-gradient(220deg, transparent 10px, #c93434 10px);
     background:    -webkit-linear-gradient(220deg, transparent 10px, #c93434 10px);
@@ -40,11 +40,11 @@
     background:         linear-gradient(220deg, transparent 10px, #c93434 10px);
 }
 
-#resourceTabs a:focus, #collectiveTabs a:focus{
+#resourceTabs a:focus, #collectiveTabs a:focus, #inputTabs a:focus{
     outline: 0;
 }
 
-#resourceTabs #current a, #collectiveTabs #current a{
+#resourceTabs #current a, #collectiveTabs #current a, #inputTabs #current a{
     background: #fff;
     background:    -moz-linear-gradient(220deg, transparent 10px, #fff 10px);
     background:    -webkit-linear-gradient(220deg, transparent 10px, #fff 10px);
@@ -55,23 +55,35 @@
     color: #333;
 }
 
-#resourceContent, #collectiveContent{
+#resourceContent, #collectiveContent, #inputContent{
     background-color: #fff;        
     
     -moz-box-shadow: 0 2px 0px #000, 0 -1px 0 #fff inset;
     -webkit-box-shadow: 0 2px 0px #000, 0 -1px 0 #fff inset;
     box-shadow: 0 2px 0px #000, 0 -1px 0 #fff inset;
-    padding: 30px;
+    padding: 10px;
     height: 76.8%;
 }
 
 /* Remove the rule below if you want the content to be "organic" */
-#resourceContent div, #collectiveContent div{
+#resourceContent div, #collectiveContent div, #inputContent div{
     height: 100%;
 }
-#billTab, #incomeTab, #paymentTab, #paycheckTab{
+#inputContent{
+    padding: 0;
+    height: 81%;
+}
+#billTab, #incomeTab, #userTab, #billTab, #payTab{
     position: relative;
+    font-size: 16px;
+    text-align: left;
+}
+#userTab, #billInputTab{
+    display: inline-block;
+    height: 10%;
+    max-height: 95%;
     font-size: 0;
+    border: 10px;
 }
 
 .summary, .details{
@@ -85,30 +97,54 @@
     text-align: left;
 }
 .summary{
-    width: 35.75%;
+    width: 25%;
     vertical-align: top;
 }
 .details{
-    width: 61.75%;
+    width: 24.5%;
     padding-left: 8px;
     vertical-align: top;
     color: #f0f0f0;
     background-color: #232323;
+    
 }
 
 .billDetail{
     height: 30px;
-    padding: 8px;
+    padding: 5px;
     line-height: 30px;
-    font-size: 18px
+    font-size: 16px
 }
 .spacer{
     display: inline-block;
     text-transform: uppercase;
     font-weight: bold;
     color: #f0f0f0;
-    width: 100px;
+    width: 40px;
     height: 30px;
-    padding: 8px;
+    padding: 5px;
     line-height: 30px;
+    text-align: right;
+}
+
+.splitPane{
+    display: inline-block;
+    width: 47.5%;
+    height: 100%;
+    vertical-align: top;
+    font-size: 16px;
+}
+
+.splitPane:nth-child(odd){
+    border-right: 20px solid #AD1C1C;
+}
+.splitPane:nth-child(even){
+    border-left: 20px solid #AD1C1C;
+}
+.inputTitle{
+    height: 40px;
+    color: #78797B;
+    text-align: center;
+    line-height: 40px;
+    font-size: 18px;
 }

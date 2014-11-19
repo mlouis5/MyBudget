@@ -7,8 +7,8 @@ html {
 }
 
 body {
-    margin: 0 auto;
-    padding: 1em 2em 2em;
+    margin: 0;
+    padding: 0;
     max-width: 1920px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 16px;
@@ -18,62 +18,43 @@ body {
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.06);
     height: 100%;
     overflow: hidden;
+    text-align: center;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    color: #222;
-    font-weight: 600;
-    line-height: 1em;
-}
-
-.heading{
+#heading{
+    display: inline-block;
     text-align: center; 
     margin-top: 0;
     font-size: 2em;
     letter-spacing: 4px;
+    height: 60px;
+    line-height: 60px;
+    width: 81%;
+    float: left;
 }
-
-h2 {
-    margin-top: 1.2em;
-}
-
-a {
-    color: #0083e8;
-}
-
-b, strong {
+.userName{
+    margin-top: 20px;
+    margin-left: 24px;
+    float: left;
+    line-height: 35px;
+    display: inline-block;
+    font-size: 20px;
+    width: 350px;
     font-weight: 600;
-}
-
-samp {
-    display: none;
-}
-
-img {
-    -webkit-animation: colorize 2s cubic-bezier(0, 0, .78, .36) 1;
-    animation: colorize 2s cubic-bezier(0, 0, .78, .36) 1;
-    background: transparent;
-    border: 10px solid rgba(0, 0, 0, 0.12);
-    border-radius: 4px;
-    display: block;
-    margin: 1.3em auto;
-    max-width: 95%;
+    height: 35px;
+    vertical-align: top;
+    text-align: left;
 }
 
 #mainContainer{
+    display: inline-block;
     border: 15px solid #78797B;
+    width: 96%;
     height: 89%;
     overflow: hidden;
     text-align: center;
     background-color: #FFFFFF;
     font-size: 0;
-}
-.resourceContainer{
-    display: inline-block;
-    position: relative;
-    width: 49%;
-    height: 45%;
-    vertical-align: top;
 }
 
 @-webkit-keyframes colorize {

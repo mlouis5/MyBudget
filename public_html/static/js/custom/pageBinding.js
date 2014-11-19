@@ -1,8 +1,23 @@
+//$.ajax({
+//    type: "GET",
+//    url: "http://localhost:8080/BudgetServices/user",
+//    //data: "firstName=Aidy&lastName=F", // the data in form-encoded format, ie as it would appear on a querystring
+//    //contentType: "application/x-www-form-urlencoded; charset=UTF-8", // if you are using form encoding, this is default so you don't need to supply it
+//    dataType: "json", // the data type we want back, so text.  The data will come wrapped in xml
+//    success: function (data) {
+//        console.log(data);
+//        //$("#searchresultsA").html(data); // show the string that was returned, this will be the data inside the xml wrapper
+//    }
+//});
+
 
 var myBudgetApp = angular.module('myBudgetApp', []);
 
+
 myBudgetApp.controller('MyBudgetCtrl', function ($scope) {
     $scope.user = {
+        userFname: "MacDerson",
+        userLname: "Louis",
         bills: [
             {
                 billName: 'honda',
@@ -15,26 +30,76 @@ myBudgetApp.controller('MyBudgetCtrl', function ($scope) {
                 payments: [
                     {
                         paymentId: 'payhonda1',
-                        paymentDate: '11-27-2014',
-                        filingDate: '11-12-2014',
-                        notifiedOn: '11-12-2014',
-                        paidOn: '11-26-2014'
+                        paymentDueDate: '11-27-2014',
+                        paymentFilingDate: '11-12-2014',
+                        paymentLastNotificationDate: '11-12-2014',
+                        paymentPaidDate: '11-26-2014'
                     },
                     {
                         paymentId: 'payhonda2',
-                        paymentDate: '10-27-2014',
-                        filingDate: '10-12-2014',
-                        notifiedOn: '10-14-2014',
-                        paidOn: '10-25-2014'
-                        
+                        paymentDueDate: '10-27-2014',
+                        paymentFilingDate: '10-12-2014',
+                        paymentLastNotificationDate: '10-14-2014',
+                        paymentPaidDate: '10-25-2014'
+
                     },
                     {
                         paymentId: 'payhonda3',
-                        paymentDate: '09-27-2014',
-                        filingDate: '09-12-2014',
-                        notifiedOn: '09-16-2014',
-                        paidOn: '09-27-2014'
-                        
+                        paymentDueDate: '09-27-2014',
+                        paymentFilingDate: '09-12-2014',
+                        paymentLastNotificationDate: '09-16-2014',
+                        paymentPaidDate: '09-27-2014'
+                    },
+                    {
+                        paymentId: 'payhonda1',
+                        paymentDueDate: '11-27-2014',
+                        paymentFilingDate: '11-12-2014',
+                        paymentLastNotificationDate: '11-12-2014',
+                        paymentPaidDate: '11-26-2014'
+                    },
+                    {
+                        paymentId: 'payhonda2',
+                        paymentDueDate: '10-27-2014',
+                        paymentFilingDate: '10-12-2014',
+                        paymentLastNotificationDate: '10-14-2014',
+                        paymentPaidDate: '10-25-2014'
+
+                    },
+                    {
+                        paymentId: 'payhonda3',
+                        paymentDueDate: '09-27-2014',
+                        paymentFilingDate: '09-12-2014',
+                        paymentLastNotificationDate: '09-16-2014',
+                        paymentPaidDate: '09-27-2014'
+                    },
+                    {
+                        paymentId: 'payhonda1',
+                        paymentDueDate: '11-27-2014',
+                        paymentFilingDate: '11-12-2014',
+                        paymentLastNotificationDate: '11-12-2014',
+                        paymentPaidDate: '11-26-2014'
+                    },
+                    {
+                        paymentId: 'payhonda2',
+                        paymentDueDate: '10-27-2014',
+                        paymentFilingDate: '10-12-2014',
+                        paymentLastNotificationDate: '10-14-2014',
+                        paymentPaidDate: '10-25-2014'
+
+                    },
+                    {
+                        paymentId: 'payhonda3',
+                        paymentDueDate: '09-27-2014',
+                        paymentFilingDate: '09-12-2014',
+                        paymentLastNotificationDate: '09-16-2014',
+                        paymentPaidDate: '09-27-2014'
+                    },
+                    {
+                        paymentId: 'payhonda3',
+                        paymentDueDate: '09-27-2014',
+                        paymentFilingDate: '09-12-2014',
+                        paymentLastNotificationDate: '09-16-2014',
+                        paymentPaidDate: '09-27-2014'
                     }
                 ]
             },
@@ -48,25 +113,26 @@ myBudgetApp.controller('MyBudgetCtrl', function ($scope) {
                 website: '',
                 payments: [
                     {
-                        paymentId: 'payrent1',
-                        paymentDate: '11-27-2014',
-                        filingDate: '11-12-2014',
-                        notifiedOn: '11-12-2014',
-                        paidOn: '11-26-2014'
+                        paymentId: 'payhonda1',
+                        paymentDueDate: '11-27-2014',
+                        paymentFilingDate: '11-12-2014',
+                        paymentLastNotificationDate: '11-12-2014',
+                        paymentPaidDate: '11-26-2014'
                     },
                     {
-                        paymentId: 'payrent2',
-                        paymentDate: '10-27-2014',
-                        filingDate: '10-12-2014',
-                        notifiedOn: '10-14-2014',
-                        paidOn: '10-25-2014'
+                        paymentId: 'payhonda2',
+                        paymentDueDate: '10-27-2014',
+                        paymentFilingDate: '10-12-2014',
+                        paymentLastNotificationDate: '10-14-2014',
+                        paymentPaidDate: '10-25-2014'
+
                     },
                     {
-                        paymentId: 'payrent3',
-                        paymentDate: '09-27-2014',
-                        filingDate: '09-12-2014',
-                        notifiedOn: '09-16-2014',
-                        paidOn: '09-27-2014'
+                        paymentId: 'payhonda3',
+                        paymentDueDate: '09-27-2014',
+                        paymentFilingDate: '09-12-2014',
+                        paymentLastNotificationDate: '09-16-2014',
+                        paymentPaidDate: '09-27-2014'
                     }
                 ]
             },
@@ -80,25 +146,26 @@ myBudgetApp.controller('MyBudgetCtrl', function ($scope) {
                 website: 'www.comcast.com',
                 payments: [
                     {
-                        paymentId: 'paycomcast1',
-                        paymentDate: '11-27-2014',
-                        filingDate: '11-12-2014',
-                        notifiedOn: '11-12-2014',
-                        paidOn: '11-26-2014'
+                        paymentId: 'payhonda1',
+                        paymentDueDate: '11-27-2014',
+                        paymentFilingDate: '11-12-2014',
+                        paymentLastNotificationDate: '11-12-2014',
+                        paymentPaidDate: '11-26-2014'
                     },
                     {
-                        paymentId: 'paycomcast2',
-                        paymentDate: '10-27-2014',
-                        filingDate: '10-12-2014',
-                        notifiedOn: '10-14-2014',
-                        paidOn: '10-25-2014'
+                        paymentId: 'payhonda2',
+                        paymentDueDate: '10-27-2014',
+                        paymentFilingDate: '10-12-2014',
+                        paymentLastNotificationDate: '10-14-2014',
+                        paymentPaidDate: '10-25-2014'
+
                     },
                     {
-                        paymentId: 'paycomcast3',
-                        paymentDate: '09-27-2014',
-                        filingDate: '09-12-2014',
-                        notifiedOn: '09-16-2014',
-                        paidOn: '09-27-2014'
+                        paymentId: 'payhonda3',
+                        paymentDueDate: '09-27-2014',
+                        paymentFilingDate: '09-12-2014',
+                        paymentLastNotificationDate: '09-16-2014',
+                        paymentPaidDate: '09-27-2014'
                     }
                 ]
             },
@@ -112,25 +179,26 @@ myBudgetApp.controller('MyBudgetCtrl', function ($scope) {
                 website: 'www.sprint.com',
                 payments: [
                     {
-                        paymentId: 'paysprint1',
-                        paymentDate: '09-22-2014',
-                        filingDate: '09-09-2014',
-                        notifiedOn: '09-11-2014',
-                        paidOn: '09-15-2014'
+                        paymentId: 'payhonda1',
+                        paymentDueDate: '11-27-2014',
+                        paymentFilingDate: '11-12-2014',
+                        paymentLastNotificationDate: '11-12-2014',
+                        paymentPaidDate: '11-26-2014'
                     },
                     {
-                        paymentId: 'paysprint2',
-                        paymentDate: '10-22-2014',
-                        filingDate: '10-10-2014',
-                        notifiedOn: '10-12-2014',
-                        paidOn: '10-22-2014'
+                        paymentId: 'payhonda2',
+                        paymentDueDate: '10-27-2014',
+                        paymentFilingDate: '10-12-2014',
+                        paymentLastNotificationDate: '10-14-2014',
+                        paymentPaidDate: '10-25-2014'
+
                     },
                     {
-                        paymentId: 'paysprint3',
-                        paymentDate: '09-22-2014',
-                        filingDate: '09-09-2014',
-                        notifiedOn: '09-11-2014',
-                        paidOn: '09-15-2014'
+                        paymentId: 'payhonda3',
+                        paymentDueDate: '09-27-2014',
+                        paymentFilingDate: '09-12-2014',
+                        paymentLastNotificationDate: '09-16-2014',
+                        paymentPaidDate: '09-27-2014'
                     }
                 ]
             }
@@ -138,43 +206,46 @@ myBudgetApp.controller('MyBudgetCtrl', function ($scope) {
     };
 
     $scope.currentBill = $scope.user.bills[0];
-    
-    $scope.currentPayments = $scope.user.bills[0].payments;
-    
-    $scope.currentPayment = $scope.currentPayments[0];
-    
-    $scope.setCurrentBill = function (index) {
-        if (index >= 0 && index < $scope.user.bills.length) {
-            $scope.currentBill = $scope.user.bills[index];
-            $scope.currentPayments = $scope.user.bills[index].payments;
-            $scope.setCurrentPayment(index);
-        }
-    };
-    
-    $scope.setCurrentPayment = function (index) {
-        if (index >= 0 && index < $scope.currentPayments.length) {
-            $scope.currentPayment = $scope.currentPayments[index];
-        }
-    };
-    
-//    $scope.syncTabs = function(tabIndex, tabContainerName, tabName, contentName){//0, "resourceTabs"
-//        $("#resourceContent div").hide(); // Initially hide all content
-//        $("#resourceTabs li:first").attr("id", "current"); // Activate first tab
-//        $("#resourceContent div:first").fadeIn(); // Show first tab content
-//        $('#resourceTabs a').click(function (e) {
-//            e.preventDefault();
-//            $("#resourceContent div").hide(); //Hide all content
-//            $("#resourceTabs li").attr("id", ""); //Reset id's
-//            $(this).parent().attr("id", "current"); // Activate this
-//            $('#' + $(this).attr('title')).fadeIn(); // Show content for current tab
-//        });
-//    }
-});
 
-$(document).ready(function () {
-    $('.nav li').click(function () {
-        $(this).addClass('active')
-                .siblings()
-                .removeClass('active');
+    $scope.currentPayments = $scope.user.bills[0].payments;
+
+    $scope.currentPayment = $scope.currentPayments[0];
+
+    $scope.sortProp = 'paymentPaidDate';
+
+    $scope.displayLimit = 10;
+
+    $scope.reverse = true;
+
+    $scope.sortBy = function (property) {
+        $scope.reverse = !$scope.reverse;
+        $scope.sortProp = property;
+    };
+
+    $scope.$watch('currentBill', function (value) {
+        for (var i = 0; i < $scope.user.bills.length; i++) {
+            if ($scope.user.bills[i].billId === value) {
+                $scope.currentPayments = $scope.user.bills[i].payments;
+                $scope.currentPayment = $scope.user.bills[i].payments[0];
+                break;
+            }
+        }
     });
+
+
+
+//    $scope.setCurrentBill = function (index) {
+//        if (index >= 0 && index < $scope.user.bills.length) {
+//            $scope.currentBill = $scope.user.bills[index];
+//            $scope.currentPayments = $scope.user.bills[index].payments;
+//            $scope.setCurrentPayment(index);
+//        }
+//    };
+//
+//    $scope.setCurrentPayment = function (index) {
+//        if (index >= 0 && index < $scope.currentPayments.length) {
+//            $scope.currentPayment = $scope.currentPayments[index];
+//        }
+//    };
+
 });
