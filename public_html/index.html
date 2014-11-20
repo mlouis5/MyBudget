@@ -11,29 +11,41 @@
         <link rel="stylesheet" href="static/css/listItem.css">
         <link rel="stylesheet" href="static/css/bill.css">
         <link rel="stylesheet" href="static/css/table.css">
+        <link rel="stylesheet" href="static/css/logo.css">
     </head>
     <body ng-cloak ng-controller="MyBudgetCtrl">
         <div id="heading">
             <section class="userName">{{user.userFname}} {{user.userLname}}</section>
             MyBudget
         </div>
-        <div id="mainContainer" >
-            <section id="userSection">
-
-            </section>
-
-
+        <div id="mainContainer">            
             <section class="tHead">
+
+                <div class="spinner">
+                    <div class="dot1"></div>
+                    <div class="dot2"></div>
+                </div>
+
                 <div id="billSelection">
-                    <select ng-model="currentBill">
+                    <select ng-model="billIdentifer">
                         <option ng-repeat="bill in user.bills" value="{{ bill.billId}}">{{ bill.billName}}</option>
                     </select>
                 </div>
-                <section ng-click="sortBy('paymentId')">Payment Id</section>
-                <section ng-click="sortBy('paymentDueDate')">Due Date</section>
-                <section ng-click="sortBy('paymentFilingDate')">Filing Date</section>
-                <section ng-click="sortBy('paymentLastNotificationDate')">Notified On</section>
-                <section ng-click="sortBy('paymentPaidDate')">Paid On</section>
+
+                <section id="userSection">
+                    <section class="userData"><div class="userTitle">Source</div><span class="userText">{{currentBill.billSource}}</span></section>
+                    <section class="userData"><div class="userTitle">Bill Type</div><span class="userText">{{currentBill.billType}}</span></section>
+                    <section class="userData"><div class="userTitle">Due Date</div><span class="userText">{{currentBill.billDueDate}}</span></section>
+                    <section class="userData"><div class="userTitle">Late Fee</div><span class="userText">{{currentBill.billLateFeeAmount}}</span></section>
+                    <section class="userData"><div class="userTitle">Number of Payments</div><span class="userText">{{currentBill.billNumPayments}}</span></section>
+                    <section class="userData"><div class="userTitle">Website</div><span class="userText">{{currentBill.billWebsite}}</span></section>
+                </section>
+
+                <section class="tHeading" ng-click="sortBy('paymentId')">Payment Id</section>
+                <section class="tHeading" ng-click="sortBy('paymentDueDate')">Due Date</section>
+                <section class="tHeading" ng-click="sortBy('paymentFilingDate')">Filing Date</section>
+                <section class="tHeading" ng-click="sortBy('paymentLastNotificationDate')">Notified On</section>
+                <section class="tHeading" ng-click="sortBy('paymentPaidDate')">Paid On</section>
             </section>
             <table id="paymentInfo">
                 <tr class="row" ng-repeat="payment in currentPayments| limitTo:displayLimit | orderBy:sortProp:reverse">
@@ -46,8 +58,8 @@
             </table>
             <section class="tFoot">
                 <div id="pageChange">
-                    <section class="circle" id="arrowLeft"></section>
-                    <section class="circle" id="arrowRight"></section>
+                    <section ng-click="pageDown()" class="circle" id="arrowLeft">◀</section>
+                    <section ng-click="pageUp()" class="circle" id="arrowRight">▶</section>
                 </div>
             </section>
         </div>
