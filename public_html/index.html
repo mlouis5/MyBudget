@@ -12,6 +12,8 @@
         <link rel="stylesheet" href="static/css/bill.css">
         <link rel="stylesheet" href="static/css/table.css">
         <link rel="stylesheet" href="static/css/logo.css">
+        <link rel="stylesheet" href="static/css/accordion.css">
+        <link rel="stylesheet" href="static/css/addBill.css" media="screen">
     </head>
     <body ng-cloak ng-controller="MyBudgetCtrl">
         <div id="heading">
@@ -57,12 +59,83 @@
                 </tr>                
             </table>
             <section class="tFoot">
+
+                <div id="menuDiv"><div id="menuTitle" ng-click="handleMenu('#menuDiv')">Menu</div>
+                    <div class="accordion">
+                        <section id="signin" class="accordionTitle" ng-click="openAccordion('.accordion', 'signin')">Sign</section>
+                        <div class="menuContent">testing</div>
+                    </div>
+                    <div class="accordion">
+                        <section id="register" class="accordionTitle" ng-click="openAccordion('.accordion', 'register')">Reg</section>
+                        <div class="menuContent">testing</div>
+                    </div>
+                    <div class="accordion">
+                        <section id="addbill" class="accordionTitle" ng-click="openAccordion('.accordion', 'addbill')">Add</section>
+                        <div class="menuContent">
+                            <form class="addbill_form" name="addbill_form">
+                                <ul>
+                                    <li>
+                                        <h4>Add Bill</h4>
+                                        <span class="required_notification">* Denotes Required Field</span>
+                                    </li>
+                                    <li>
+                                        <label for="bill_name">Bill Name:</label>
+                                        <input type="text" name="bill_name" />
+                                    </li>
+                                    <li>
+                                        <label for="bill_source">Bill Source:</label>
+                                        <input type="text" name="bill_source" />
+                                    </li>
+                                    <li>
+                                        <label for="bill_type">Bill Type:</label>
+                                        <input list="types" name="bill_type" />
+                                    </li>
+                                    <li>
+                                        <label for="bill_due_date">Bill Due Date:</label>
+                                        <input type="text" name="bill_due_date" />
+                                        <span class="form_hint">values "1-31"</span>
+                                    </li>
+                                    <li>
+                                        <label for="bill_is_revolving">Is Bill Revolving?:</label>
+                                        <input type="checkbox" name="bill_is_revolving" />
+                                        <span class="form_hint">values "1-31"</span>
+                                    </li>
+                                    <li>
+                                        <label for="bill_num_payments">Pmts. Remaining:</label>
+                                        <input type="number" name="bill_num_payments" min="1" max="360"/>
+                                    </li>
+                                    <li>
+                                        <label for="bill_late_fee_amount">Late Fee:</label>
+                                        <input type="number" name="bill_late_fee_amount" min="1" max="360"/>
+                                    </li>
+                                    <li>
+                                        <label for="bill_interest_rate">Late Fee:</label>
+                                        <input type="number" name="bill_interest_rate" min="0.0" max="100.0"/>
+                                    </li>
+                                </ul>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="accordion">
+                        <section id="editbill" class="accordionTitle" ng-click="openAccordion('.accordion', 'editbill')">Edit</section>
+                        <div class="menuContent">testing</div>
+                    </div>
+                </div>
+
                 <div id="pageChange">
                     <section ng-click="pageDown()" class="circle" id="arrowLeft">◀</section>
                     <section ng-click="pageUp()" class="circle" id="arrowRight">▶</section>
                 </div>
             </section>
         </div>
+
+        <datalist id="types">
+            <option value="Internet Explorer">
+            <option value="Firefox">
+            <option value="Google Chrome">
+            <option value="Opera">
+            <option value="Safari">
+        </datalist>
 
         <script type="text/javascript" src="static/js/libs/jquery/jquery.js"></script>
         <script type="text/javascript" src="static/js/custom/tabs.js"></script>

@@ -474,10 +474,10 @@ myBudgetApp.controller('MyBudgetCtrl', function ($scope) {
         ]
     };
 
-    
+
     $scope.currentBill = $scope.user.bills[0];
     $scope.billIdentifer = $scope.currentBill.billId;
-    
+
     $scope.displayLimit = 10;
 
     $scope.minPaymentIndex = 0;
@@ -488,7 +488,7 @@ myBudgetApp.controller('MyBudgetCtrl', function ($scope) {
     $scope.currentPayment = $scope.currentPayments[0];
 
     $scope.sortProp = 'paymentId';
-    
+
     $scope.reverse = true;
 
     $scope.sortBy = function (property) {
@@ -529,4 +529,46 @@ myBudgetApp.controller('MyBudgetCtrl', function ($scope) {
                 .slice($scope.minPaymentIndex);
     };
 
+    $scope.menuState = false;
+    $scope.handleMenu = function (id) {
+        if (!$scope.menuState) {
+            $(id).animate({
+                height: '500px'
+            }, 500);   
+            $(id + " .accordion").animate({
+                height: '450px'
+            }, 500);
+            $scope.menuState = true;
+        }else{
+            $(id).animate({
+                height: '50px'
+            }, 500);
+            $(id + " .accordion").animate({
+                height: '0px'
+            }, 500);
+            $scope.menuState = false;
+        }
+    };
+    
+    $scope.openAccordion = function (className, id){
+        if ($scope.menuState) {
+            $(className).each(function(index, element){
+                var elem = $(element);
+                console.log(elem.children());
+                if(elem.children().attr("id") === id){
+                    elem.animate({
+                        width: "740px",
+                        'font-size': '20px'
+                    }, 500);
+                    $(elem.find("div")).show(500);
+                }else{
+                    elem.animate({
+                        width: "50px",
+                        fontSize: '8px'
+                    }, 500);
+                    $(elem.find("div")).hide(500);
+                }
+            });
+        }
+    };
 });
