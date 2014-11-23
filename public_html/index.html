@@ -76,37 +76,36 @@
                                 <section class="billTitle">Add Bill</section>
                                 <ul>
                                     <li>
-                                        <label for="bill_name">Bill Name:</label>
-                                        <input type="text" name="bill_name" placeholder="name this bill" required/>
-                                        <span class="form_hint">Assign name to bill</span>
+                                        <label for="billName">Bill Name:</label>
+                                        <input type="text" name="billName" placeholder="name this bill" required/>
                                     </li>
                                     <li>
-                                        <label for="bill_source">Source:</label>
-                                        <input type="text" name="bill_source" placeholder="Payee" required/>
+                                        <label for="billSource">Source:</label>
+                                        <input type="text" name="billSource" placeholder="Payee" required/>
                                     </li>
                                     <li>
-                                        <label for="bill_type">Type:</label>
-                                        <input type="text" list="types" name="bill_type"/>
+                                        <label for="billType">Type:</label>
+                                        <input type="text" list="types" name="billType"/>
                                     </li>
                                     <li>
-                                        <label for="bill_due_date">Due Date:</label>
-                                        <input type="number" name="bill_due_date" min="1" max="31" placeholder="1-31" required/>
+                                        <label for="billDueDate">Due Date:</label>
+                                        <input type="number" name="billDueDate" min="1" max="31" placeholder="1-31" required/>
                                     </li>                                    
                                     <li>
-                                        <label for="bill_num_payments">Pmt Remaining:</label>
-                                        <input type="number" name="bill_num_payments" min="1" max="360"/>
+                                        <label for="billNumPayments">Pmt Remaining:</label>
+                                        <input type="number" name="billNumPayments" min="1" max="360"/>
                                     </li>
                                     <li>
-                                        <label for="bill_late_fee_amount">Late Fee:</label>
-                                        <input type="number" name="bill_late_fee_amount" min="0"/>
+                                        <label for="billLateFeeAmount">Late Fee:</label>
+                                        <input type="number" name="billLateFeeAmount" min="0"/>
                                     </li>
                                     <li>
-                                        <label for="bill_interest_rate">Interest Rate:</label>
-                                        <input type="number" name="bill_interest_rate" min="0.0" max="100.0" step="any"/>
+                                        <label for="billInterestRate">Interest Rate:</label>
+                                        <input type="number" name="billInterestRate" min="0.0" max="100.0" step="any"/>
                                     </li>
                                     <li>
-                                        <label for="bill_grace_period">Grace period:</label>
-                                        <input type="number" name="bill_grace_period" min="0" max="30" step="1"/>
+                                        <label for="billGracePeriod">Grace period:</label>
+                                        <input type="number" name="billGracePeriod" min="0" max="30" step="1"/>
                                     </li>
                                 </ul>
                                 <ul>
@@ -115,8 +114,8 @@
                                         <input type="number" name="amount" placeholder="120.25" step="any" min="0.0" required/>
                                     </li>
                                     <li>
-                                        <label for="bill_website">Website:</label>
-                                        <input type="url" name="bill_website" placeholder="www.site.com" pattern="(http|https)://.+"/>
+                                        <label for="billWebsite">Website:</label>
+                                        <input type="url" name="billWebsite" placeholder="www.site.com" pattern="(http|https)://.+"/>
                                     </li>
                                     <li>
                                         <label for="address_line_1">Address 1</label>
@@ -139,8 +138,8 @@
                                         <input type="text" name="zip" placeholder="Zip"/>
                                     </li> 
                                     <li>
-                                        <label for="bill_is_revolving">Is Revolving?:</label>
-                                        <input type="checkbox" name="bill_is_revolving" />
+                                        <label for="billIsRevolving">Is Revolving?:</label>
+                                        <input type="checkbox" name="billIsRevolving" />
                                     </li>                                    
                                 </ul>
                                 <button class="submit" type="submit">Add Bill</button>
