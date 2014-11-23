@@ -538,6 +538,7 @@ myBudgetApp.controller('MyBudgetCtrl', function ($scope) {
             $(id + " .accordion").animate({
                 height: '450px'
             }, 500);
+            $(id + " .accordion div").hide(1);
             $scope.menuState = true;
         }else{
             $(id).animate({
@@ -558,15 +559,15 @@ myBudgetApp.controller('MyBudgetCtrl', function ($scope) {
                 if(elem.children().attr("id") === id){
                     elem.animate({
                         width: "740px",
-                        'font-size': '20px'
+                        'fontSize': '20px'
                     }, 500);
-                    $(elem.find("div")).show(500);
+                    $(elem.find("div")).show(1);
                 }else{
                     elem.animate({
                         width: "50px",
                         fontSize: '8px'
                     }, 500);
-                    $(elem.find("div")).hide(500);
+                    $(elem.find("div")).hide(1);
                 }
             });
         }

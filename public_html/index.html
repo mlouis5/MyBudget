@@ -72,47 +72,78 @@
                     <div class="accordion">
                         <section id="addbill" class="accordionTitle" ng-click="openAccordion('.accordion', 'addbill')">Add</section>
                         <div class="menuContent">
-                            <form class="addbill_form" name="addbill_form">
+                            <form class="addbill_form" name="addbill_form">   
+                                <section class="billTitle">Add Bill</section>
                                 <ul>
                                     <li>
-                                        <h4>Add Bill</h4>
-                                        <span class="required_notification">* Denotes Required Field</span>
-                                    </li>
-                                    <li>
                                         <label for="bill_name">Bill Name:</label>
-                                        <input type="text" name="bill_name" />
+                                        <input type="text" name="bill_name" placeholder="name this bill" required/>
+                                        <span class="form_hint">Assign name to bill</span>
                                     </li>
                                     <li>
-                                        <label for="bill_source">Bill Source:</label>
-                                        <input type="text" name="bill_source" />
+                                        <label for="bill_source">Source:</label>
+                                        <input type="text" name="bill_source" placeholder="Payee" required/>
                                     </li>
                                     <li>
-                                        <label for="bill_type">Bill Type:</label>
-                                        <input list="types" name="bill_type" />
+                                        <label for="bill_type">Type:</label>
+                                        <input type="text" list="types" name="bill_type"/>
                                     </li>
                                     <li>
-                                        <label for="bill_due_date">Bill Due Date:</label>
-                                        <input type="text" name="bill_due_date" />
-                                        <span class="form_hint">values "1-31"</span>
-                                    </li>
+                                        <label for="bill_due_date">Due Date:</label>
+                                        <input type="number" name="bill_due_date" min="1" max="31" placeholder="1-31" required/>
+                                    </li>                                    
                                     <li>
-                                        <label for="bill_is_revolving">Is Bill Revolving?:</label>
-                                        <input type="checkbox" name="bill_is_revolving" />
-                                        <span class="form_hint">values "1-31"</span>
-                                    </li>
-                                    <li>
-                                        <label for="bill_num_payments">Pmts. Remaining:</label>
+                                        <label for="bill_num_payments">Pmt Remaining:</label>
                                         <input type="number" name="bill_num_payments" min="1" max="360"/>
                                     </li>
                                     <li>
                                         <label for="bill_late_fee_amount">Late Fee:</label>
-                                        <input type="number" name="bill_late_fee_amount" min="1" max="360"/>
+                                        <input type="number" name="bill_late_fee_amount" min="0"/>
                                     </li>
                                     <li>
-                                        <label for="bill_interest_rate">Late Fee:</label>
-                                        <input type="number" name="bill_interest_rate" min="0.0" max="100.0"/>
+                                        <label for="bill_interest_rate">Interest Rate:</label>
+                                        <input type="number" name="bill_interest_rate" min="0.0" max="100.0" step="any"/>
+                                    </li>
+                                    <li>
+                                        <label for="bill_grace_period">Grace period:</label>
+                                        <input type="number" name="bill_grace_period" min="0" max="30" step="1"/>
                                     </li>
                                 </ul>
+                                <ul>
+                                    <li>
+                                        <label for="amount">Amount:</label>
+                                        <input type="number" name="amount" placeholder="120.25" step="any" min="0.0" required/>
+                                    </li>
+                                    <li>
+                                        <label for="bill_website">Website:</label>
+                                        <input type="url" name="bill_website" placeholder="www.site.com" pattern="(http|https)://.+"/>
+                                    </li>
+                                    <li>
+                                        <label for="address_line_1">Address 1</label>
+                                        <input type="text" name="address_line_1" placeholder="123 Street"/>
+                                    </li>
+                                    <li>
+                                        <label for="address_line_2">Address 2</label>
+                                        <input type="text" name="address_line_2" placeholder="Optional"/>
+                                    </li>
+                                    <li>
+                                        <label for="city">City</label>
+                                        <input type="text" name="city" placeholder="City"/>
+                                    </li>
+                                    <li>
+                                        <label for="state">State</label>
+                                        <input list="states" name="state" placeholder="State"/>
+                                    </li>
+                                    <li>
+                                        <label for="zip">Zip</label>
+                                        <input type="text" name="zip" placeholder="Zip"/>
+                                    </li> 
+                                    <li>
+                                        <label for="bill_is_revolving">Is Revolving?:</label>
+                                        <input type="checkbox" name="bill_is_revolving" />
+                                    </li>                                    
+                                </ul>
+                                <button class="submit" type="submit">Add Bill</button>
                             </form>
                         </div>
                     </div>
@@ -130,11 +161,136 @@
         </div>
 
         <datalist id="types">
-            <option value="Internet Explorer">
-            <option value="Firefox">
-            <option value="Google Chrome">
-            <option value="Opera">
-            <option value="Safari">
+            <option value="Alimony">
+            <option value="Anniversary">
+            <option value="Auto Insurance">
+            <option value="Auto Loan">
+            <option value="Babysitter">
+            <option value="Birthday">
+            <option value="Books">
+            <option value="Cable">
+            <option value="Charities">
+            <option value="Child Support">
+            <option value="Children’s College">
+            <option value="Christmas">
+            <option value="Cleaning Supplies">
+            <option value="Clothing">
+            <option value="Conferences">
+            <option value="Cosmetics">
+            <option value="Credit Card">
+            <option value="Dental Care">
+            <option value="Disability Insurance">
+            <option value="Dishwasher Detergent">
+            <option value="DMV Fees">
+            <option value="Eating Out">
+            <option value="Electricity">
+            <option value="Entertainment">
+            <option value="Financial Coaching">
+            <option value="Financial Planning">
+            <option value="Fuel">
+            <option value="Games">
+            <option value="Garbage">
+            <option value="Groceries">
+            <option value="Gym Memberships">
+            <option value="Hair Cuts">
+            <option value="Health Insurance">
+            <option value="Heating">
+            <option value="HOA Dues">
+            <option value="Homeowner’s Insurance">
+            <option value="Household Repairs">
+            <option value="Identity Theft Protection">
+            <option value="Internet">
+            <option value="Investing">
+            <option value="Laundry Detergent">
+            <option value="Life Insurance">
+            <option value="Longterm Care Insurance">
+            <option value="Maintenance">
+            <option value="Medical Devices">
+            <option value="Medications">
+            <option value="Mortgage">
+            <option value="Offerings">
+            <option value="Oil Changes">
+            <option value="Parking Fees">
+            <option value="Personal Loan">
+            <option value="Pet Food/Treats">
+            <option value="Phones">
+            <option value="Primary Care">
+            <option value="Property Taxes">
+            <option value="Rent">
+            <option value="Renter’s Insurance">
+            <option value="Repairs">
+            <option value="Restaurants">
+            <option value="Salon Services">
+            <option value="School Supplies">
+            <option value="Special Occasion">
+            <option value="Specialty Care">
+            <option value="Specific Needs">
+            <option value="Spontaneous Giving">
+            <option value="Student Loan">
+            <option value="Subscriptions">
+            <option value="Subscriptions">
+            <option value="Tires">
+            <option value="Tithing">
+            <option value="Toiletries">
+            <option value="Tools">
+            <option value="Vacations">
+            <option value="Vehicle Replacement">
+            <option value="Water">
+            <option value="Wedding">
+            <option value="College">
+        </datalist>
+
+        <datalist id="states">
+            <option label="ALABAMA" value="AL">
+            <option label="ALASKA" value="AK">
+            <option label="ARIZONA" value="AZ">
+            <option label="ARKANSAS" value="AR">
+            <option label="CALIFORNIA" value="CA">
+            <option label="COLORADO" value="CO">
+            <option label="CONNECTICUT" value="CT">
+            <option label="DELAWARE" value="DE">
+            <option label="FLORIDA" value="FL">
+            <option label="GEORGIA" value="GA">
+            <option label="HAWAII" value="HI">
+            <option label="IDAHO" value="ID">
+            <option label="ILLINOIS" value="IL">
+            <option label="INDIANA" value="IN">
+            <option label="IOWA" value="IA">
+            <option label="KANSAS" value="KS">
+            <option label="KENTUCKY" value="KY">
+            <option label="LOUISIANA" value="LA">
+            <option label="MAINE" value="ME">
+            <option label="MARYLAND" value="MD">
+            <option label="MASSACHUSETTS" value="MA">
+            <option label="MICHIGAN" value="MI">
+            <option label="MINNESOTA" value="MN">
+            <option label="MISSISSIPPI" value="MS">
+            <option label="MISSOURI" value="MO">
+            <option label="MONTANA" value="MT">
+            <option label="NEBRASKA" value="NE">
+            <option label="NEVADA" value="NV">
+            <option label="NEW HAMPSHIRE" value="NH">
+            <option label="NEW JERSEY" value="NJ">
+            <option label="NEW MEXICO" value="NM">
+            <option label="NEW YORK" value="NY">
+            <option label="NORTH CAROLINA" value="NC">
+            <option label="NORTH DAKOTA" value="ND">
+            <option label="OHIO" value="OH">
+            <option label="OKLAHOMA" value="OK">
+            <option label="OREGON" value="OR">
+            <option label="PENNSYLVANIA" value="PA">
+            <option label="RHODE ISLAND" value="RI">
+            <option label="SOUTH CAROLINA" value="SC">
+            <option label="SOUTH DAKOTA" value="SD">
+            <option label="TENNESSEE" value="TN">
+            <option label="TEXAS" value="TX">
+            <option label="UTAH" value="UT">
+            <option label="VERMONT" value="VT">
+            <option label="VIRGINIA" value="VA">
+            <option label="WASHINGTON" value="WA">
+            <option label="WEST VIRGINIA" value="WV">
+            <option label="WISCONSIN" value="WI">
+            <option label="WYOMING" value="WY">
         </datalist>
 
         <script type="text/javascript" src="static/js/libs/jquery/jquery.js"></script>

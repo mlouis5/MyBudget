@@ -1,11 +1,113 @@
 .addbill_form{
-    
+    padding: 0;
+    text-align: center;
+}
+.billTitle{
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    height: 25px;
+}
+.addbill_form ul {
+    display: inline-block;
+    width:350px;
+    list-style-type:none;
+    list-style-position:outside;
+    margin:0px;
+    padding:0px;
+    vertical-align: top;
+}
+.addbill_form li{
+    display: inline;
+    float: left;
+    position:relative;
+    height: 37px;
+}
+
+.addbill_form label {
+    text-align: right;
+    width:150px;
+    margin-top: 3px;
+    display:inline-block;
+    float:left;
+    padding:1px;
+}
+.addbill_form input {
+    height:18px; 
+    width:170px; 
+    padding:1px;
+    border: none;
+    -webkit-box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    4px 4px 6px 0px rgba(50, 50, 50, 0.75);
+    box-shadow:         4px 4px 6px 0px rgba(50, 50, 50, 0.75);
+    padding-left: 4px;
+    background-color: rgba(0, 0, 0, .05);
+    color: #232323;
+}
+.addbill_form input[type=checkbox] {
+    margin-top: 16px;
+    height: 16px;
+    width: 16px;
+    float: left;
+    padding-left: 0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow:    none;
+    box-shadow:         none;
+}
+.addbill_form input:focus{
+    padding-right:10px;
+    -moz-transition: padding .25s; 
+    -webkit-transition: padding .25s; 
+    -o-transition: padding .25s;
+    transition: padding .25s;
+}
+
+.addbill_form ul:last-child{
+    padding-bottom: 5px;
+}
+.submit {
+    width: 328px;
+    margin-left: 372px;
+    height: 25px;
+    border: none;
+    -webkit-box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    4px 4px 6px 0px rgba(50, 50, 50, 0.75);
+    box-shadow:         4px 4px 6px 0px rgba(50, 50, 50, 0.75);
+    background-color: rgba(146, 203, 183, .6);
+    color: #FFFFFF;
+    font-weight: 400;
+    font-size: 17px;
+}
+.submit:hover{
+    cursor: pointer;
+}
+
+.addbill_form li span{
+    display: none;
+}
+
+.addbill_form li:first-child, .addbill_form li:last-child {
+    /*border-bottom:1px solid #777;*/
+}
+.addbill_form h4{
+    margin:0;
+    display: inline;
+    border: 1px solid blue;
 }
 
 .required_notification{
-    
+    float: right;
+    margin-right: 20px;
 }
 
 .form_hint{
     
+}
+
+.submit{
+    
+}
+
+input:focus {
+    outline: none;
 }
