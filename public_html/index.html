@@ -77,72 +77,72 @@
                                 <ul>
                                     <li>
                                         <label for="billName">Bill Name:</label>
-                                        <input type="text" name="billName" placeholder="name this bill" required/>
+                                        <input ng-model="bill.billName" type="text" name="billName" placeholder="name this bill" required/>
                                     </li>
                                     <li>
                                         <label for="billSource">Source:</label>
-                                        <input type="text" name="billSource" placeholder="Payee" required/>
+                                        <input ng-model="bill.billSource" type="text" name="billSource" placeholder="Payee" required/>
                                     </li>
                                     <li>
                                         <label for="billType">Type:</label>
-                                        <input type="text" list="types" name="billType"/>
+                                        <input ng-model="bill.billType" type="text" list="types" name="billType"/>
                                     </li>
                                     <li>
                                         <label for="billDueDate">Due Date:</label>
-                                        <input type="number" name="billDueDate" min="1" max="31" placeholder="1-31" required/>
+                                        <input ng-model="bill.billDueDate" type="number" name="billDueDate" min="1" max="31" placeholder="1-31" required/>
                                     </li>                                    
                                     <li>
                                         <label for="billNumPayments">Pmt Remaining:</label>
-                                        <input type="number" name="billNumPayments" min="1" max="360"/>
+                                        <input ng-model="bill.billNumPayments" type="number" name="billNumPayments" min="1" max="360"/>
                                     </li>
                                     <li>
                                         <label for="billLateFeeAmount">Late Fee:</label>
-                                        <input type="number" name="billLateFeeAmount" min="0"/>
+                                        <input ng-model="bill.billLateFeeAmount" type="number" name="billLateFeeAmount" min="0"/>
                                     </li>
                                     <li>
                                         <label for="billInterestRate">Interest Rate:</label>
-                                        <input type="number" name="billInterestRate" min="0.0" max="100.0" step="any"/>
+                                        <input ng-model="bill.billInterestRate" type="number" name="billInterestRate" min="0.0" max="100.0" step="any"/>
                                     </li>
                                     <li>
                                         <label for="billGracePeriod">Grace period:</label>
-                                        <input type="number" name="billGracePeriod" min="0" max="30" step="1"/>
+                                        <input ng-model="bill.billGracePeriod" type="number" name="billGracePeriod" min="0" max="30" step="1"/>
                                     </li>
                                 </ul>
                                 <ul>
                                     <li>
                                         <label for="billAmount">Amount:</label>
-                                        <input type="number" name="billAmount" placeholder="120.25" step="any" min="0.0" required/>
+                                        <input ng-model="bill.billAmount" type="number" name="billAmount" placeholder="120.25" step="any" min="0.0" required/>
                                     </li>
                                     <li>
                                         <label for="billWebsite">Website:</label>
-                                        <input type="url" name="billWebsite" placeholder="www.site.com" pattern="(http|https)://.+"/>
+                                        <input ng-model="bill.billWebsite" type="url" name="billWebsite" placeholder="www.site.com" pattern="(http|https)://.+"/>
                                     </li>
                                     <li>
                                         <label for="addressLine1">Address 1</label>
-                                        <input type="text" name="addressLine1" placeholder="123 Street"/>
+                                        <input ng-model="bill.billMailAddress.addressLine1" type="text" name="addressLine1" placeholder="123 Street"/>
                                     </li>
                                     <li>
                                         <label for="addressLine2">Address 2</label>
-                                        <input type="text" name="addressLine2" placeholder="Optional"/>
+                                        <input ng-model="bill.billMailAddress.addressLine2" type="text" name="addressLine2" placeholder="Optional"/>
                                     </li>
                                     <li>
                                         <label for="addressCity">City</label>
-                                        <input type="text" name="addressCity" placeholder="City"/>
+                                        <input ng-model="bill.billMailAddress.addressCity" type="text" name="addressCity" placeholder="City"/>
                                     </li>
                                     <li>
                                         <label for="addressState">State</label>
-                                        <input list="states" name="addressState" placeholder="State"/>
+                                        <input ng-model="bill.billMailAddress.addressState" list="states" name="addressState" placeholder="State"/>
                                     </li>
                                     <li>
                                         <label for="addressZipcode">Zip</label>
-                                        <input type="text" name="addressZipcode" placeholder="Zip"/>
+                                        <input ng-model="bill.billMailAddress.addressZipcode" type="text" name="addressZipcode" placeholder="Zip"/>
                                     </li> 
                                     <li>
                                         <label for="billIsRevolving">Is Revolving?:</label>
-                                        <input type="checkbox" name="billIsRevolving" />
+                                        <input ng-model="bill.billIsRevolving" type="checkbox" name="billIsRevolving" />
                                     </li>                                    
                                 </ul>
-                                <button class="submit" type="submit">Add Bill</button>
+                                <button ng-click="submitBill()" class="submit" type="submit">Add Bill</button>
                             </form>
                         </div>
                     </div>

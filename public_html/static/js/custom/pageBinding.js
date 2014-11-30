@@ -534,13 +534,13 @@ myBudgetApp.controller('MyBudgetCtrl', function ($scope) {
         if (!$scope.menuState) {
             $(id).animate({
                 height: '500px'
-            }, 500);   
+            }, 500);
             $(id + " .accordion").animate({
                 height: '450px'
             }, 500);
             $(id + " .accordion div").hide(1);
             $scope.menuState = true;
-        }else{
+        } else {
             $(id).animate({
                 height: '50px'
             }, 500);
@@ -550,19 +550,19 @@ myBudgetApp.controller('MyBudgetCtrl', function ($scope) {
             $scope.menuState = false;
         }
     };
-    
-    $scope.openAccordion = function (className, id){
+
+    $scope.openAccordion = function (className, id) {
         if ($scope.menuState) {
-            $(className).each(function(index, element){
+            $(className).each(function (index, element) {
                 var elem = $(element);
                 console.log(elem.children());
-                if(elem.children().attr("id") === id){
+                if (elem.children().attr("id") === id) {
                     elem.animate({
                         width: "740px",
                         'fontSize': '20px'
                     }, 500);
                     $(elem.find("div")).show(1);
-                }else{
+                } else {
                     elem.animate({
                         width: "50px",
                         fontSize: '8px'
@@ -571,5 +571,62 @@ myBudgetApp.controller('MyBudgetCtrl', function ($scope) {
                 }
             });
         }
+    };
+
+    $scope.bill = {
+        billId:"testidueodjcmvnhdjdfk",
+        billName:"test bill",
+        billSource:"test source",
+        billType:"test type",
+        billDueDate:27,
+        billIsRevolving:true,
+        billNumPayments:8,
+        billAmount:400.00,
+        billLateFeeAmount:12,
+        billInterestRate:1.99,
+        billGracePeriod:10,
+        billWebsite:"http://www.test.com",
+        billSiteUserId:"testUserId",
+        billSitePwd:"testPwd",
+        billIsSatisfied:true,
+        billMailAddress:{
+            addressId: 1,
+            addressLine1:"14 ibeck court",
+            addressCity:"new city",
+            addressState:"NY",
+            addressZipcode:"08086"
+        },
+        billOwner:{
+            userId: "testuserid",
+            userFname:"macderson",
+            userLname:"louis",
+            userPhone:"6095094605",
+            userEmail:"macdersonlouis@gmail.com",
+            userPreferredContact:"TEXT",
+            incomeList: [],
+            billList: [],
+            paymentList: [],
+            userAddress: [],
+            paycheckList: []
+        },
+        paymentList: []
+    };
+
+    $scope.submitBill = function () {
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:9090/bill",
+            data: JSON.stringify($scope.bill),
+            contentType: 'application/json',
+            dataType: "json",
+            success: function (data) {
+                console.log(data);
+                //$("#searchresultsA").html(data); // show the string that was returned, this will be the data inside the xml wrapper
+            },
+            error: function(xhr, status, errorThrown){
+                console.log(status);
+                console.log(errorThrown);
+            }
+        });
     };
 });
