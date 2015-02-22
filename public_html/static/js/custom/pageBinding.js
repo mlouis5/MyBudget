@@ -1,14 +1,14 @@
-$.ajax({
-    type: "GET",
-    url: "http://localhost:8080/BudgetServices/user",
-    //data: "firstName=Aidy&lastName=F", // the data in form-encoded format, ie as it would appear on a querystring
-    //contentType: "application/x-www-form-urlencoded; charset=UTF-8", // if you are using form encoding, this is default so you don't need to supply it
-    dataType: "json", // the data type we want back, so text.  The data will come wrapped in xml
-    success: function (data) {
-        console.log(data);
-        //$("#searchresultsA").html(data); // show the string that was returned, this will be the data inside the xml wrapper
-    }
-});
+//$.ajax({
+//    type: "GET",
+//    url: "http://localhost:8080/BudgetServices/user",
+//    //data: "firstName=Aidy&lastName=F", // the data in form-encoded format, ie as it would appear on a querystring
+//    //contentType: "application/x-www-form-urlencoded; charset=UTF-8", // if you are using form encoding, this is default so you don't need to supply it
+//    dataType: "json", // the data type we want back, so text.  The data will come wrapped in xml
+//    success: function (data) {
+//        console.log(data);
+//        //$("#searchresultsA").html(data); // show the string that was returned, this will be the data inside the xml wrapper
+//    }
+//});
 
 
 var myBudgetApp = angular.module('myBudgetApp', []);
@@ -574,59 +574,89 @@ myBudgetApp.controller('MyBudgetCtrl', function ($scope) {
     };
 
     $scope.bill = {
-        billId:"testidueodjcmvnhdjdfk",
-        billName:"test bill",
-        billSource:"test source",
-        billType:"test type",
-        billDueDate:27,
-        billIsRevolving:true,
-        billNumPayments:8,
-        billAmount:400.00,
-        billLateFeeAmount:12,
-        billInterestRate:1.99,
-        billGracePeriod:10,
-        billWebsite:"http://www.test.com",
-        billSiteUserId:"testUserId",
-        billSitePwd:"testPwd",
-        billIsSatisfied:true,
-        billMailAddress:{
+        billId: "testidueodjcmvnhdjdfk",
+        billName: "test bill",
+        billSource: "test source",
+        billType: "test type",
+        billDueDate: 27,
+        billIsRevolving: true,
+        billNumPayments: 8,
+        billAmount: 400.00,
+        billLateFeeAmount: 12,
+        billInterestRate: 1.99,
+        billGracePeriod: 10,
+        billWebsite: "http://www.test.com",
+        billSiteUserId: "testUserId",
+        billSitePwd: "testPwd",
+        billIsSatisfied: true,
+        billMailAddress: {
             addressId: 1,
-            addressLine1:"14 ibeck court",
-            addressCity:"new city",
-            addressState:"NY",
-            addressZipcode:"08086"
+            addressLine1: "14 ibeck court",
+            addressCity: "new city",
+            addressState: "NY",
+            addressZipcode: "08086"
         },
-        billOwner:{
+        billOwner: {
             userId: "testuserid",
-            userFname:"macderson",
-            userLname:"louis",
-            userPhone:"6095094605",
-            userEmail:"macdersonlouis@gmail.com",
-            userPreferredContact:"TEXT",
-            incomeList: [],
-            billList: [],
-            paymentList: [],
-            userAddress: [],
-            paycheckList: []
-        },
-        paymentList: []
+            userFname: "macderson",
+            userLname: "louis",
+            userPhone: "6095094605",
+            userEmail: "macdersonlouis@gmail.com",
+            userPreferredContact: "TEXT"
+                    //incomeList: [],
+                    //billList: [],
+                    //paymentList: [],
+                    //userAddress: [],
+                    //paycheckList: []
+        }//,
+        //paymentList: []
     };
 
+    $scope.draftSocket;
+    $scope.isInit = false;
+
     $scope.submitBill = function () {
-        $.ajax({
-            type: "POST",
-            url: "http://localhost:9090/bill",
-            data: JSON.stringify($scope.bill),
-            contentType: 'application/json',
-            dataType: "json",
-            success: function (data) {
-                console.log(data);
-                //$("#searchresultsA").html(data); // show the string that was returned, this will be the data inside the xml wrapper
-            },
-            error: function(xhr, status, errorThrown){
-                console.log(status);
-                console.log(errorThrown);
-            }
-        });
+        console.log("Submitting bill");
+
+        if ($scope.isInit === false) {
+            initSockets();
+        }else{
+            $scope.draftSocket.send("testing");
+        }
+        
+        function initSockets() {
+            var socketLink = "ws://" + document.location.host + document.location.pathname + "budget/mac";
+            console.log(socketLink);
+            $scope.draftSocket = new WebSocket(socketLink);
+            $scope.draftSocket.onopen = function (evt) {
+                console.log(evt.data);
+            };
+            $scope.draftSocket.onmessage = function (evt) {
+                console.log(evt.data);
+            };
+            $scope.draftSocket.onerror = function (evt) {
+                console.log(evt.data);
+            };
+            $scope.draftSocket.onclose = function (evt) {
+                //onMessage(evt.data);
+            };
+            $scope.isInit = true;
+        }
+
+//        $.ajax({
+//            type: "POST",
+//            url: "http://localhost:8080/bills/bill",
+//            data: JSON.stringify($scope.bill),
+//            contentType: 'text/plain',
+//            //dataType: 'text',
+//            success: function (data) {
+//                console.log(data);
+//                //$("#searchresultsA").html(data); // show the string that was returned, this will be the data inside the xml wrapper
+//            },
+//            error: function(xhr, status, errorThrown){
+//                console.log(status);
+//                console.log(errorThrown);
+//            }
+//        });
     };
 });
